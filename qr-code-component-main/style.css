@@ -21,7 +21,7 @@ body {
     background-color: #fff;
     font-family: "Outfit", sans-serif;
     text-align: center;
-    box-shadow: inset;
+    box-shadow: 0px 0px 9px 2px #fff;
 }
 
 .container img {
