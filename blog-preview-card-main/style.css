@@ -33,6 +33,8 @@ main p {
 
 .date{
     font-weight: 600;
+    font-size: small;
+    margin: 12px 0px;
 }
 
 .topic{
