@@ -11,7 +11,7 @@ A static web design for a Blog preview card.
 
 ### Screenshot
 
-![](./design/Screenshot%202024-07-19%20081114.png)
+![](./design/Screenshot%202024-07-19%20090114.png)
 
 
 ### Links
