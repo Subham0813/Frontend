@@ -16,8 +16,8 @@ A static web design for a Blog preview card.
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [blog-preview-card-main](https://github.com/Subham0813/Frontend/tree/master/blog-preview-card-main)
+- Live Site URL: [Live here](https://subham0813.github.io/Frontend/blog-preview-card-main/index.html)
 
 ## My process
 
@@ -33,6 +33,6 @@ in this project I learned media queries , how they worksd in different cases, po
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Subham](https://github.com/Subham0813)
+- Frontend Mentor - [@Subham0813](https://www.frontendmentor.io/profile/Subham0813)
+-LinkedIn - [@Subham Bachar](www.linkedin.com/in/subham-a13u97g)
