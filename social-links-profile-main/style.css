@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #141414;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+}
+
+.card{
+    width: 380px;
+    background-color: #1f1f1f;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    box-shadow: 0px 0px 60px 3px #c5f82a;
+}
+
+.card img{
+    border-radius: 50%;
+    width: 100px;
+}
+
+.name{
+    font-size: 32px;
+    font-weight: 600;
+    padding-top: 30px;
+
+}
+
+.location{
+    padding-top: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #c5f82a;
+}
+
+.bio{
+    padding-top: 30px ;
+    padding-bottom: 12px;
+    font-size: 14px;
+}
+
+.card  button {
+    width: 320px;
+    background-color:#333333;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px 0px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+
+button:hover{
+    background-color: #c5f82a;
+    color: #141414;
+    text-shadow: #141414;
+}
+
+
+@media (max-width: 400px) {
+    .card{
+        width: 260px;
+    }
+    .card img{
+        width: 70px;
+    }
+    
+    .name{
+        font-size: 24px;
+        font-weight: 600;
+        padding-top: 30px;
+    
+    }
+    
+    .location{
+        padding-top: 6px;
+        font-weight: 600;
+        font-size: 12px;
+        color: #c5f82a;
+    }
+
+    .bio{
+        padding-top: 24px ;
+        padding-bottom: 12px;
+        font-size: 10px;
+    }
+
+    .card  button {
+        width: 220px;
+        padding: 10px;
+        font-size: 12px;
+        margin: 6px 0px;
+    }
+    
+}
