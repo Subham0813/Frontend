@@ -29,7 +29,8 @@ Users should be able to:
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Subham](https://github.com/Subham0813)
+- Frontend Mentor - [@Subham0813](https://www.frontendmentor.io/profile/Subham0813)
+-LinkedIn - [@Subham Bachar](www.linkedin.com/in/subham-a13u97g)
+<!-- - Twitter - [@yourusername](https://www.twitter.com/yourusername) -->
 
