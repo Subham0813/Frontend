@@ -17,8 +17,6 @@ Users should be able to:
 - Solution URL: [https://github.com/Subham0813/Frontend/tree/master/social-links-profile-main](https://github.com/Subham0813/Frontend/tree/master/social-links-profile-main)
 - Live Site URL: [https://subham0813.github.io/Frontend/social-links-profile-main/index.html](https://subham0813.github.io/Frontend/social-links-profile-main/index.html)
 
-## My process
-
 ### Built with
 
 - Semantic HTML5 markup

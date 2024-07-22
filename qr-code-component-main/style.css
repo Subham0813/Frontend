@@ -5,9 +5,9 @@
 }
 
 body {
-    background-color: #96acd5;
     width: 100vw;
     height: 100vh;
+    background-color: #d6e1f0;
     display: flex;
     flex-direction: column;
     align-items: center;
