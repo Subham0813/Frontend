@@ -13,8 +13,8 @@ A clean Design for recipe blog. Eye pleasing web design using HTML & CSS
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/Subham0813/Frontend/tree/master/recipe-page-main](https://github.com/Subham0813/Frontend/tree/master/recipe-page-main)
+- Live Site URL: [https://subham0813.github.io/Frontend/recipe-page-main/index.html](https://subham0813.github.io/Frontend/recipe-page-main/index.html)
 
 ## My process
 Done without any figma references💪
