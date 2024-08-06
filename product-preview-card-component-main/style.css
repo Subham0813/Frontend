@@ -1,0 +1,110 @@
+body{
+    background-color: #f2ebe3;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.card .mobile {
+    display: none;
+}
+
+.card{
+    max-width: 600px;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.desktop {
+    width: 300px;
+}
+
+.details{
+    padding: 30px;;
+}
+
+.product, .description, .orig, a{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: #6c7289;
+}
+.product-name, .disc{
+    font-family: "Fraunces", serif;
+}
+
+.product {
+    margin-bottom: 46px;
+}
+
+.description{
+    font-size: 14px;
+    padding-bottom: 16px;
+}
+
+.disc{
+    font-size: 32px;
+    font-weight: 900;
+    padding-right: 12px;
+    color: hsl(158, 36%, 37%);
+}
+
+.orig {
+    text-decoration: line-through;
+}
+
+.btn {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    border-radius: 10px;
+    background-color: hsl(158, 36%, 37%);
+}
+
+.btn:hover{
+    background-color: hsl(158, 36%, 20%);
+}
+
+.btn a{
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+}
+
+@media (max-width : 700px) {
+
+    .card .mobile {
+        display: block;
+    }
+
+    .card .desktop {
+        display: none;
+    }
+
+    .card{
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .product {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width : 480px) {
+    .card {
+        font-size: small;
+    }
+}
