@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Product list with cart</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <div class="catalog">
+        <div class="heading">
+          <h1 class="heading-text">Desserts</h1>
+          <span class="cart-icon enable">
+            <img src="./assets/images/icon-add-to-cart.svg" alt="cart" />
+            <p class="uniq-count"></p>
+          </span>
+        </div>
+        <section class="items"></section>
+      </div>
+
+      <div class="cart-container">
+        <div class="cart-wrapper">
+          <div class="cart">
+            <div class="heading">
+              <h3>Your Cart (0)</h3>
+              <span class="btn show-btn"
+                ><img
+                  src="./assets/images/icon-increment-quantity.svg"
+                  alt="quit button"
+              /></span>
+            </div>
+            <section class="quantity">
+              <img
+                src="./assets/images/illustration-empty-cart.svg"
+                alt="empty cart"
+              />
+              <p class="message">Your added items will appear here</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
