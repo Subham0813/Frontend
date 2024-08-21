@@ -26,17 +26,16 @@
           <h1 class="heading-text">Desserts</h1>
           <span class="cart-icon show-cart">
             <img src="./assets/images/icon-add-to-cart.svg" alt="cart" />
-            <p class="uniq-count"></p>
+            <p class="uniq-count">5</p>
           </span>
         </div>
         <section class="items"></section>
       </div>
 
       <div class="cart-container">
-        <!-- <div class="cart-wrapper"> -->
         <div class="cart">
           <div class="heading">
-            <h3>Your Cart (0)</h3>
+            <h3>Your Cart (<span>0</span>)</h3>
             <span class="cancel-btn show-btn"
               ><img
                 src="./assets/images/icon-increment-quantity.svg"
@@ -44,14 +43,50 @@
             /></span>
           </div>
           <section class="quantity">
-            <img
+            <!-- <img id="empty"
               src="./assets/images/illustration-empty-cart.svg"
               alt="empty cart"
             />
-            <p class="message">Your added items will appear here</p>
+            <p class="message">Your added items will appear here</p> -->
+            <div class="buying">
+              <div class="item-details">
+                <img
+                  class="thumbnail"
+                  src="./assets/images/image-baklava-thumbnail.jpg"
+                  alt="thumbnail"
+                />
+                <div class="item-info">
+                  <p class="item-name">Classic Tiramisu</p>
+                  <p class="item-price">
+                    <span class="quantity">1x</span>
+                    <span class="price">@5.50</span>
+                    <span class="item-total">$5.50</span>
+                  </p>
+                </div>
+              </div>
+
+              <img
+                class="delete-item"
+                src="./assets/images/icon-remove-item.svg"
+                alt="delete item button"
+              />
+            </div>
+            <div class="separator"></div>
+            <div class="order-total">
+              <span>Order Total</span>
+              <span class="total-price">$5.50</span>
+            </div>
           </section>
+
+          <div class="message">
+            <img
+              src="./assets/images/icon-carbon-neutral.svg"
+              alt="carbon nutral"
+            />
+            <p>This is a <b>carbon-neutral</b> delivery</p>
+          </div>
+          <div class="button order-btn">Confirm Order</div>
         </div>
-        <!-- </div> -->
       </div>
     </main>
   </body>
