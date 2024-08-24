@@ -21,23 +21,22 @@ const body = document.querySelector("body");
 const cartIcon = document.querySelector(".cart-icon");
 const cartContainer = document.querySelector(".cart-container");
 const cartCancelButton = document.querySelector(".cancel-btn");
-let itemImage, countSpan;
+let itemImage, countSpan, itemInfo;
 
 const toPay = 0;
-const deleteItem = document.querySelector(".delete-item");
 const totalPrice = document.querySelector(".total-price");
-const yourCartQuantity = document.querySelector(".cart .heading span");
+const yourCart = document.querySelector(".cart .heading span");
 const uniqCount = document.querySelector(".uniq-count");
-let uniqItem = 0;
+let totalItem = 0;
 
 const itemList = document.querySelector(".item-list");
 const orderTotal = document.querySelector(".order-total");
 const carbon = document.querySelector(".carbon");
-const orderBtn = document.querySelector(".order-btn");
+const confirmOrder = document.querySelector(".order-btn");
 
 document.addEventListener("click", (e) => {
   const target = e.target;
-  console.log(counts);
+
   // console.dir(target);
   // console.dir(target.parentElement);
 
@@ -60,12 +59,11 @@ document.addEventListener("click", (e) => {
   }
 
   if (addBtn != null && addBtn) {
-    let itemId = addBtn.id;
-    console.log(itemId);
+    let id = addBtn.id;
     addBtn.innerHTML = `
-        <img id= ${itemId} src="./assets/images/icon-increment-quantity.svg" alt="add" />
-        <span id="item-${itemId}">${++counts[itemId]}</span>
-        <img id= ${itemId} src="./assets/images/icon-decrement-quantity.svg" alt="remove"/>
+        <img id= ${id} src="./assets/images/icon-increment-quantity.svg" alt="add" />
+        <span id="item-${id}">${++counts[id]}</span>
+        <img id= ${id} src="./assets/images/icon-decrement-quantity.svg" alt="remove"/>
       `;
 
     addBtn.classList.add("selected-btn");
@@ -77,46 +75,84 @@ document.addEventListener("click", (e) => {
     itemImage[2].classList.add("selected");
 
     const name = addBtn.nextSibling.querySelector(".name").innerHTML;
-
     const card = createCartItem(
-      itemId,
-      thumbnails[itemId],
+      id,
+      thumbnails[id],
       name,
-      counts[itemId],
-      prices[itemId]
+      counts[id],
+      prices[id]
     );
-    cartItems.push(card);
-    itemList.appendChild(card.component);
-    itemList.appendChild(card.separator);
-    itemList.querySelector(".empty").classList.add("hide");
-    itemList.querySelector(".message").classList.add("hide");
 
-    uniqItem++;
-    if (uniqItem > 0) uniqCount.innerHTML = uniqItem;
-    yourCartQuantity.innerHTML = uniqItem;
+    if (cartItems[id] == null) {
+      cartItems[id] = card;
+      itemList.appendChild(card.component);
+      itemList.querySelector(".empty").classList.add("hide");
+      itemList.querySelector(".message").classList.add("hide");
+    }
+
+    totalItem++;
+    if (totalItem > 0) uniqCount.innerHTML = totalItem;
+    yourCart.innerHTML = totalItem;
     addBtn = null;
+
+    itemInfo =
+      cartItems[id].component.children[0].children[1].children[1].children;
+    itemInfo[0].innerText = `${counts[id]}x`;
+    itemInfo[2].innerText = `${(prices[id] * counts[id]).toFixed(2)}`;
+
+    orderTotal;
   }
 
   if (target.alt === "add") {
-    countSpan = document.querySelector(`#item-${target.id}`);
+    const id = target.id;
+    countSpan = document.querySelector(`#item-${id}`);
 
-    if (counts[target.id] + 1 <= 10) counts[target.id]++;
-    countSpan.innerText = counts[target.id];
+    if (counts[id] + 1 <= 10) {
+      counts[id]++;
+      totalItem++;
+    }
+    if (counts[id] == 10) {
+      countSpan.innerText = `${counts[id]} (max)`;
+      target.classList.add("hide");
+    } else countSpan.innerText = counts[id];
+
+    uniqCount.innerHTML = totalItem;
+    yourCart.innerHTML = totalItem;
+
+    itemInfo =
+      cartItems[id].component.children[0].children[1].children[1].children;
+    itemInfo[0].innerText = `${counts[id]}x`;
+    itemInfo[2].innerText = `${(prices[id] * counts[id]).toFixed(2)}`;
   }
 
   if (target.alt === "remove") {
-    countSpan = document.querySelector(`#item-${target.id}`);
-    console.dir(countSpan);
-    if (counts[target.id] > 0) counts[target.id]--;
+    const id = target.id;
+    countSpan = document.querySelector(`#item-${id}`);
+    itemInfo =
+      cartItems[id].component.children[0].children[1].children[1].children;
+    if (counts[id] > 0) {
+      counts[id]--;
+      totalItem--;
+      itemInfo[0].innerText = `${counts[id]}x`;
+      itemInfo[2].innerText = `${(prices[id] * counts[id]).toFixed(2)}`;
+    }
 
-    if (counts[target.id] == 0) {
-      if (uniqItem > 0) {
-        uniqItem--;
-        uniqCount.innerHTML = uniqItem;
-        if (uniqItem == 0) uniqCount.innerHTML = "";
-        yourCartQuantity.innerHTML = uniqItem;
-      }
+    console.log(target);
 
+    if (
+      counts[id] < 10 &&
+      countSpan.parentElement.children[0].classList.contains("hide")
+    ) {
+      countSpan.parentElement.children[0].classList.add("show");
+      countSpan.parentElement.children[0].classList.remove("hide");
+    }
+
+    yourCart.innerHTML = totalItem;
+    if (totalItem > 0) {
+      uniqCount.innerHTML = totalItem;
+    } else uniqCount.innerHTML = "";
+
+    if (counts[id] == 0) {
       countSpan.parentElement.classList.remove("selected-btn");
       countSpan.parentElement.classList.add("card-button");
       itemImage = countSpan.parentElement.parentElement.children;
@@ -128,25 +164,24 @@ document.addEventListener("click", (e) => {
         <img src="./assets/images/icon-add-to-cart.svg" alt="icon" />
         <span>Add to cart</span>
         `;
-    } else countSpan.innerText = counts[target.id];
-  }
+      cartItems[id] = null;
 
-  if (target === deleteItem) {
-    deleteItem.parentElement.remove();
+      const children = itemList.children;
+      for (let i = 0; i < children.length; i++)
+        if (children[i].id == id) itemList.removeChild(children[i]);
+    } else countSpan.innerText = counts[id];
   }
 
   if (cartItems.length > 0) {
     orderTotal.classList.add("show");
-    orderBtn.classList.add("show");
+    confirmOrder.classList.add("show");
     carbon.classList.add("show");
   }
 });
 
 function createCartItem(id, thumbnail, name, quantity, price) {
   const items = {
-    id: null,
     component: null,
-    separator: null,
   };
 
   const cartItem = document.createElement("div");
@@ -179,13 +214,7 @@ function createCartItem(id, thumbnail, name, quantity, price) {
               />
   `;
 
-  const separator = document.createElement("div");
-  separator.id = id;
-  separator.className = "separator";
-
-  items.id = id;
   items.component = cartItem;
-  items.separator = separator;
 
   return items;
 }
@@ -198,6 +227,7 @@ fetch("./data.json")
       counts.push(0);
       prices.push(price);
       thumbnails.push(`${desert.image.thumbnail}`);
+      cartItems.push(null);
 
       item.className = `item`;
       item.id = `${index}`;

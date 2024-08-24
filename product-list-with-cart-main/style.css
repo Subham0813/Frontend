@@ -43,11 +43,11 @@ body {
 }
 
 .uniq-count {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 900;
   position: absolute;
-  left: 32px;
-  padding: 4px;
+  left: 30px;
+  padding: 2px;
   color: hsl(14, 86%, 42%);
 }
 
@@ -145,6 +145,7 @@ body {
 .selected-btn span {
   color: #fff;
   font-weight: 500;
+  padding: 0px 8px;
 }
 
 .selected {
@@ -168,9 +169,6 @@ body {
   color: hsl(14, 86%, 42%);
   display: flex;
   padding-bottom: 16px;
-}
-.cart .item-list {
-  text-align: center;
 }
 
 .cart .empty {
@@ -198,7 +196,7 @@ body {
   transform: rotate(45deg);
   border-radius: 50%;
   padding: 4px;
-  width: 30px;
+  width: 24px;
   border-radius: 50%;
 }
 
@@ -228,11 +226,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0px;
+  padding: 8px 4px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0px 0px 16px -5px hsl(7, 20%, 60%);
 }
 
 .item-details {
   display: flex;
+  align-items: center;
   gap: 16px;
 }
 
@@ -244,7 +246,7 @@ body {
 }
 
 .item-info {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
   display: flex;
   flex-direction: column;
@@ -266,6 +268,7 @@ body {
 }
 .item-total {
   font-weight: 700;
+  font-size: 12px;
 }
 
 .delete-item {
@@ -274,11 +277,6 @@ body {
   padding: 3px;
   border-radius: 50%;
   border: 2px solid #caafa7;
-}
-
-.separator {
-  height: 2px;
-  background-color: hsl(13, 31%, 94%);
 }
 
 .order-total {
@@ -295,11 +293,11 @@ body {
   font-weight: 900;
 }
 
-.cart .show {
+* .show {
   display: flex;
 }
 
-.cart .hide {
+* .hide {
   display: none;
 }
 
@@ -417,7 +415,7 @@ body {
   .show-container {
     display: flex;
     position: fixed;
-    min-height: 100%;
+    min-height: 100vh;
     min-width: 100%;
     align-items: center;
     justify-content: center;
@@ -428,10 +426,11 @@ body {
 
   .show-container .cart {
     position: inherit;
+    max-height: 100%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    animation: popUp 0.5s ease-out forwards;
+    animation: popUp 0.3s ease-out forwards;
   }
 
   @keyframes popUp {
@@ -518,10 +517,26 @@ body {
   }
 
   .cart .order-btn {
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .thumbnail {
     display: block;
+  }
+
+  .item-info {
+    font-size: 10px;
+  }
+
+  .total-price {
+    font-size: 20px;
+  }
+
+  .cart-item {
+    padding: 5px 4px;
+  }
+
+  .cart .carbon {
+    margin: 5px 0px;
   }
 }
