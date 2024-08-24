@@ -173,12 +173,14 @@ body {
 
 .cart .empty {
   padding-bottom: 10px;
+  margin: 0 auto;
 }
 
 .cart .message {
   font-weight: 500;
   font-size: 12px;
   color: hsl(12, 20%, 44%);
+  margin: 0 auto;
 }
 
 .cart .cancel-btn {
@@ -230,6 +232,12 @@ body {
   border-radius: 12px;
   margin-bottom: 8px;
   box-shadow: 0px 0px 16px -5px hsl(7, 20%, 60%);
+}
+
+.item-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .item-details {
@@ -293,10 +301,12 @@ body {
   font-weight: 900;
 }
 
+.cart .show,
 * .show {
   display: flex;
 }
 
+.cart .default,
 * .hide {
   display: none;
 }

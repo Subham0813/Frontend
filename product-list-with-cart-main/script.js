@@ -23,7 +23,7 @@ const cartContainer = document.querySelector(".cart-container");
 const cartCancelButton = document.querySelector(".cancel-btn");
 let itemImage, countSpan, itemInfo;
 
-const toPay = 0;
+let toPay = 0;
 const totalPrice = document.querySelector(".total-price");
 const yourCart = document.querySelector(".cart .heading span");
 const uniqCount = document.querySelector(".uniq-count");
@@ -38,7 +38,7 @@ document.addEventListener("click", (e) => {
   const target = e.target;
 
   // console.dir(target);
-  // console.dir(target.parentElement);
+  // console.dir(target.parentElement.parentElement);
 
   if (target === cartIcon || target.parentElement === cartIcon) {
     cartContainer.classList.add("show-container");
@@ -86,8 +86,6 @@ document.addEventListener("click", (e) => {
     if (cartItems[id] == null) {
       cartItems[id] = card;
       itemList.appendChild(card.component);
-      itemList.querySelector(".empty").classList.add("hide");
-      itemList.querySelector(".message").classList.add("hide");
     }
 
     totalItem++;
@@ -100,7 +98,7 @@ document.addEventListener("click", (e) => {
     itemInfo[0].innerText = `${counts[id]}x`;
     itemInfo[2].innerText = `${(prices[id] * counts[id]).toFixed(2)}`;
 
-    orderTotal;
+    toPay += parseFloat(prices[id]);
   }
 
   if (target.alt === "add") {
@@ -123,6 +121,8 @@ document.addEventListener("click", (e) => {
       cartItems[id].component.children[0].children[1].children[1].children;
     itemInfo[0].innerText = `${counts[id]}x`;
     itemInfo[2].innerText = `${(prices[id] * counts[id]).toFixed(2)}`;
+
+    toPay += parseFloat(prices[id]);
   }
 
   if (target.alt === "remove") {
@@ -136,8 +136,6 @@ document.addEventListener("click", (e) => {
       itemInfo[0].innerText = `${counts[id]}x`;
       itemInfo[2].innerText = `${(prices[id] * counts[id]).toFixed(2)}`;
     }
-
-    console.log(target);
 
     if (
       counts[id] < 10 &&
@@ -167,15 +165,66 @@ document.addEventListener("click", (e) => {
       cartItems[id] = null;
 
       const children = itemList.children;
-      for (let i = 0; i < children.length; i++)
-        if (children[i].id == id) itemList.removeChild(children[i]);
+      for (let i = 0; i < children.length; i++) {
+        if (children[i].id == id) {
+          itemList.removeChild(children[i]);
+        }
+      }
     } else countSpan.innerText = counts[id];
+
+    toPay -= parseFloat(prices[id]);
+
+    if (toPay < 0) toPay = 0.0;
   }
 
-  if (cartItems.length > 0) {
+  if (target.classList.contains("delete-item")) {
+    const id = target.id;
+    let children = itemList.children;
+    for (let i = 0; i < children.length; i++) {
+      if (children[i].id == id) {
+        itemList.removeChild(children[i]);
+      }
+    }
+    toPay -= parseFloat(counts[id] * prices[id]);
+    counts[id] = 0;
+
+    cartItems.forEach((card) => {
+      if (card?.component?.id === id) cartItems[id] = null;
+    });
+
+    children = items.children;
+    for (let i = 0; i < children.length; i++) {
+      if (children[i].id === id) {
+        const button = children[i].querySelector(".button");
+        button.classList.add("card-button");
+        button.classList.remove("selected-btn");
+        button.innerHTML = `
+          <img src="./assets/images/icon-add-to-cart.svg" alt="icon" />
+          <span>Add to cart</span>
+        `;
+        itemImage = button.parentElement.children;
+        itemImage[0].classList.remove("selected");
+        itemImage[1].classList.remove("selected");
+        itemImage[2].classList.remove("selected");
+      }
+    }
+
+    console.log(cartItems);
+  }
+
+  if (cartItems.some((Element) => Element)) {
+    totalPrice.innerText = toPay.toFixed(2);
     orderTotal.classList.add("show");
     confirmOrder.classList.add("show");
     carbon.classList.add("show");
+    itemList.querySelector(".empty").classList.add("default");
+    itemList.querySelector(".message").classList.add("default");
+  } else {
+    orderTotal.classList.remove("show");
+    confirmOrder.classList.remove("show");
+    carbon.classList.remove("show");
+    itemList.querySelector(".empty").classList.remove("default");
+    itemList.querySelector(".message").classList.remove("default");
   }
 });
 
